@@ -10,8 +10,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import kotlinx.datetime.LocalDate
@@ -46,7 +44,7 @@ class SampleDataRepoImpl(localDatabase: LocalDatabase) : SampleDataRepo {
   }
 
   override fun getAllDates(): Flow<List<LocalDate>> {
-    return localDao.getAll().map { it.map { it.date } }
+    return localDao.getAll().map { list -> list.map { it.date } }
   }
 
 }

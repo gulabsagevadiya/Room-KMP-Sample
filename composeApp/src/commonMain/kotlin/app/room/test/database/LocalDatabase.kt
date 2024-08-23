@@ -47,12 +47,12 @@ interface LocalDao {
 }
 
 // FIXME: Added a hack to resolve below issue:
-// Class 'AppDatabase_Impl' is not abstract and does not implement abstract base class member 'clearAllTables'.
+// Class 'LocalDatabase_Impl' is not abstract and does not implement abstract base class member 'clearAllTables'.
 interface DB {
   fun clearAllTables() {}
 }
 
-
+//FIXME: Lowered the room version because of below issue as i am using kotlin 2.0.0 this could only work below 2.0.0
 //ERROR: file:///Users/Demo/Desktop/Multiplatform/RoomSample/composeApp/build/generated/ksp/metadata/commonMain/kotlin/app/room/test/database/LocalDatabaseCtor.kt:5:22 'actual object LocalDatabaseCtor : RoomDatabaseConstructor<LocalDatabase>' has no corresponding expected declaration
 //@Suppress("NO_ACTUAL_FOR_EXPECT")
 //expect object LocalDatabaseCtor : RoomDatabaseConstructor<LocalDatabase>
